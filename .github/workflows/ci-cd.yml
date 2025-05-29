@@ -38,3 +38,33 @@ jobs:
           
       - name: Build mkdocs
         run: mkdocs gh-deploy --force
+
+
+name: CD
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: gh-deploy
+
+      - name: Deploy
+        env:
+          SSH_KEY: ${{ secrets.SERVER_SSH_KEY }}
+          SERVER: "nikki@celery.icu"
+          REMOTE_PATH: "/var/www/gh-pages/"
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+
+          echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+
+          rsync -avz --delete -e "ssh -i ~/.ssh/deploy_key" ./site/ $SERVER:$REMOTE_PATH
+
+          rm -rf ~/.ssh/deploy_key
