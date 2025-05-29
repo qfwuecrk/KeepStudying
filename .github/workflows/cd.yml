@@ -9,9 +9,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: gh-deploy
+          ref: gh-pages
 
-      - name: Deploy
+      - name: deploy
         env:
           SSH_KEY: ${{ secrets.SERVER_SSH_KEY }}
           SERVER: "nikki@celery.icu"
