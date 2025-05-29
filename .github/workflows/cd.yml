@@ -18,6 +18,11 @@ jobs:
           REMOTE_PATH: "/var/www/gh-pages/"
         run: |
           mkdir -p ~/.ssh
+
+          env
+          echo "$secrets"
+          echo "$secrets.SERVER_SSH_KEY"
+          
           echo "$SSH_KEY" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
 
