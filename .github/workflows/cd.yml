@@ -18,12 +18,11 @@ jobs:
           REMOTE_PATH: "/var/www/gh-pages/"
         run: |
           mkdir -p ~/.ssh
-          ls -all
           echo "$SSH_KEY" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
 
           echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-
-          rsync -avz --delete -e "ssh -i ~/.ssh/deploy_key" ./site/ $SERVER:$REMOTE_PATH
+          
+          rsync -avz --delete --exclude='.*' -e "ssh -i ~/.ssh/deploy_key" . $SERVER:$REMOTE_PATH
 
           rm -rf ~/.ssh/deploy_key
