@@ -1,0 +1,120 @@
+site_name: Computer Science
+site_url: https://celery.icu
+theme:
+  name: material
+  language: zh
+  palette:    
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      primary: white
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  features:
+    - navigation.tabs
+    - navigation.instant
+    - navigation.sections
+    - navigation.path
+    - navigation.indexes
+    - navigation.top
+    # - toc.integrate
+    - content.code.select
+    - content.code.copy
+  icon:
+    annotation: material/arrow-right-circle
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      linenums: false
+      pygments_lang_class: true
+      linenums_style: pymdownx-inline
+      anchor_linenums: true
+      line_spans: __span
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - attr_list
+  - tables
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - md_in_html
+extra_javascript:
+  - javascripts/katex.js
+  - https://unpkg.com/katex@0/dist/katex.min.js
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+extra_css:
+  - https://unpkg.com/katex@0/dist/katex.min.css
+nav:
+  - 简介: index.md
+  - 高等数学:
+    - 高等数学: FurtherMathematics/index.md
+  - 计算机系统概论:
+    - 计算机系统概论: ComputerScience/index.md
+    - 数制: ComputerScience/数制.md
+    - 数字电路: ComputerScience/数字电路.md
+    - 冯诺伊曼模型: ComputerScience/冯诺伊曼模型.md
+    - LC-3-ISA: ComputerScience/LC-3-ISA.md
+    - LC-3-汇编: ComputerScience/LC-3-汇编.md
+    - 高级语言: ComputerScience/高级语言.md
+  - RISC-V:
+    - 简介: RISC-V/index.md
+    - ELF: RISC-V/ELF.md
+  - 数据结构与算法:
+    - 数据结构:
+      - 数据结构: DataStructures/index.md
+      - 概述: DataStructures/概述.md
+      - 线性表: DataStructures/线性表.md
+      - 栈和队列: DataStructures/栈和队列.md
+      - 串、数组和广义表: DataStructures/串、数组和广义表.md
+      - 树和二叉树: DataStructures/树和二叉树.md
+      - 图: DataStructures/图.md
+      - 查找: DataStructures/查找.md
+      - 排序: DataStructures/排序.md
+    - 算法:
+      - 算法: Algorithms/index.md
+  - 操作系统:
+    - 操作系统: OperatingSystem/index.md
+  - FreeBSD:
+    - index: FreeBSD/index.md
+    - shell总结: FreeBSD/shell总结.md
+    - 系统命令总结: FreeBSD/系统命令总结.md
+    - 工具函数: FreeBSD/工具函数.md
+    - 正则表达式: FreeBSD/正则表达式.md
+    - 异常处理机制: FreeBSD/异常处理机制.md
+    - IO: FreeBSD/IO.md
+    - 同步异步与阻塞非阻塞: FreeBSD/同步异步与阻塞非阻塞.md
+    - 文件系统机制: FreeBSD/文件系统机制.md
+    - 系统数据文件与信息: FreeBSD/系统数据文件与信息.md
+    - 信号机制: FreeBSD/信号机制.md
+    - socket机制: FreeBSD/socket机制.md
+    - makefile: FreeBSD/makefile.md
+  - Development:
+    - Development: Development/index.md
+    - Nginx: Development/nginx.md
+    - ArchLinux: Development/archlinux.md
+    - WSL: Development/wsl.md
+  - Cpp:
+    - Cpp: Cpp/index.md
+    - 基本结构: Cpp/基本结构.md
+    - 数据类型: Cpp/数据类型.md
