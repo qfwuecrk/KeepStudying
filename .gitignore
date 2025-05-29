@@ -1,0 +1,36 @@
+# Python相关
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+
+# 虚拟环境
+venv/
+env/
+ENV/
+.venv/
+.testenv/
+.ENV/
+
+# IDE相关
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# 操作系统文件
+.DS_Store
+Thumbs.db
+
+# 日志文件
+*.log
+
+# 本地配置文件
+*.local
+*.env
+
+# build
+site/
+*.tar.gz
+*.tar
