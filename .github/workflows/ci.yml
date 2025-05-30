@@ -26,7 +26,10 @@ jobs:
         with:
           python-version: '3.x'
 
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+      - run: |
+          echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+          mkdir -p .cache
+        
       - name: Cache
         uses: actions/cache@v4
         with:
