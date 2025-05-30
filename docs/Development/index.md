@@ -17,6 +17,15 @@ sudo groupadd new_groupname
 sudo useradd -m -g initial_group -G additional_groups -s login_shell username
 # 其中，-m表示创建用户主目录，-g指定用户主要组，-G指定附加组，-s指定登录Shell。
 
+# 用户加入新的组
+sudo usermod -G www-data username
+
+# 使用 -a 参数可配合 -G 实现“追加”而不是“覆盖”，例如
+sudo usermod -aG sudo,www-data alice
+
+# 组信息
+groups nikki
+
 # 使用chown命令来更改文件或文件夹的所有权。
 sudo chown user:group filename_or_directory
 
